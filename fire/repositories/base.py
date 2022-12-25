@@ -37,7 +37,7 @@ class BaseRepository(Generic[Table, TableCreate]):
 
     async def create(
         self, entity: TableCreate, connection: Optional[AsyncConnection] = None
-    ) -> Table:
+    ) -> int:
         statement = insert(self.table).values(entity.dict())
         try:
             result = await (connection or self.connection).execute(statement)

@@ -16,4 +16,4 @@ def create_connection(db_file):
 
 
 if __name__ == '__main__':
-    create_connection("C:/Users/AAnikeev/PycharmProjects/FIRE/data/database.db")
+    create_connection("C:/Users/AAnikeev/PycharmProjects/FIRE/data/test.db")
