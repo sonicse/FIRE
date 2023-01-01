@@ -1,6 +1,7 @@
 from typing import AsyncGenerator
 
 from fire.models.trade import Trade, TradeCreate
+from fire.models.portfolio import PortfolioTicker
 from fire.repositories.trade import TradeRepository
 
 
@@ -28,3 +29,7 @@ class TradeService:
     async def list_trades(self) -> AsyncGenerator[Trade, None]:
         async for trade in self.trade_repository.filter():
             yield trade
+
+    async def portfolio(self) -> AsyncGenerator[PortfolioTicker, None]:
+        async for ticker in self.trade_repository.portfolio():
+            yield ticker

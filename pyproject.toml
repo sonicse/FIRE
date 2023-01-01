@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "fire"
+version = "0.1.0"
+description = ""
+authors = ["sonicse <sonicse@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+alembic = "^1.8.1"
+sqlmodel = "^0.0.6"
+python-slugify = "^7.0.0"
+aiosqlite = "^0.17.0"
+sqlalchemy = {extras = ["asyncio"], version = "^1.4.45"}
+fastapi = "^0.88.0"
+uvicorn = "^0.20.0"
+httpx = "^0.23.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+pytest-asyncio = "^0.20.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
