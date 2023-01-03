@@ -4,7 +4,7 @@ from fire.dependencies.service import get_trade_service
 from fire.services.trade import TradeService
 from fire.schemas.portfolio import (
     PortfolioResponse,
-    TickerSchema,
+    PortfolioTicker,
 )
 from fire.repositories.errors import (
     ForeignKeyViolationError,
@@ -41,13 +41,13 @@ async def list(
 @router.get(
     '/{ticker}',
     name='portfolio:get',
-    response_model=TickerSchema,
+    response_model=PortfolioTicker,
     summary='Get Portfolio Ticker'
 )
 async def get(
     ticker: str,
     service: TradeService = Depends(get_trade_service),
-) -> TickerSchema:
+) -> PortfolioTicker:
     try:
         return await service.get_ticker(ticker=ticker)
     except NotFoundError as exc:

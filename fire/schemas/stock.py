@@ -3,16 +3,16 @@ from typing import List
 from pydantic import BaseModel, Extra
 
 
-class PortfolioTicker(BaseModel):
+class StockTicker(BaseModel):
     ticker: str
     count: int
     price: float
     last_trade: datetime
 
 
-class PortfolioResponse(BaseModel):
+class StockResponse(BaseModel):
     count: int
-    items: List[PortfolioTicker]
+    items: List[StockTicker]
 
     class Config:
         extra = Extra.forbid
